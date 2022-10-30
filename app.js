@@ -37,9 +37,11 @@ app.get('/', async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening on ${PORT}...`);
-});
+let port = process.env.PORT;
+if (port == null || port == '') {
+  port = 8000;
+}
+app.listen(port);
 
 /*
 TODO
@@ -47,5 +49,6 @@ TODO
 API call timeout and error handling
 Database for storing photos
 Daily timer for API calls
+Have choices for photo category
 
 */
