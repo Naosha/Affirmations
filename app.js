@@ -44,10 +44,8 @@ app.listen(PORT, () => {
 /*
 TODO
 
-media queries
 API call timeout and error handling
 Database for storing photos
 Daily timer for API calls
-
 
 */
