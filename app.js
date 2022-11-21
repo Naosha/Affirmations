@@ -4,8 +4,6 @@ const controller = require('./controllers/controller');
 const model = require('./models/model');
 const featurePolicy = require('feature-policy');
 
-const PORT = 3000;
-
 const app = express();
 
 // controller.task.start();
@@ -37,11 +35,9 @@ app.get('/', async (req, res) => {
   });
 });
 
-let port = process.env.PORT;
-if (port == null || port == '') {
-  port = 8000;
-}
-app.listen(port);
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => console.log('Server started'));
 
 /*
 TODO
