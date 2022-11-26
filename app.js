@@ -20,23 +20,21 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  res.sendStatus(200);
-});
-
 app.get('/', async (req, res) => {
   await model.getRandomPhoto();
   model.getRandomAffirmation();
   model.getRandomMusic();
-  res.render('index', {
-    photo: model.state.photo.regular,
-    affirmation: model.state.affirmation,
-    photographer: model.state.photo.photographer,
-    link: model.state.photo.link,
-    description: model.state.photo.description,
-    color: model.state.photo.color,
-    music: model.state.music,
-  });
+  res
+    .render('index', {
+      photo: model.state.photo.regular,
+      affirmation: model.state.affirmation,
+      photographer: model.state.photo.photographer,
+      link: model.state.photo.link,
+      description: model.state.photo.description,
+      color: model.state.photo.color,
+      music: model.state.music,
+    })
+    .sendStatus(200);
 });
 
 const port = process.env.PORT || 8000;
