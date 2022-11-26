@@ -20,6 +20,10 @@ app.use(
   })
 );
 
+app.get('/', (req, res) => {
+  res.sendStatus(200);
+});
+
 app.get('/', async (req, res) => {
   await model.getRandomPhoto();
   model.getRandomAffirmation();
